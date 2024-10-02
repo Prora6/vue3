@@ -60,12 +60,17 @@ export default {
 
     onMounted(async () => {
       try {
+
         post.value = await getPostById(props.postId);
         editedPost.value = { ...post.value };
         comments.value = await getCommentsByPostId(props.postId);
+
       } catch (err) {
+
         error.value = 'Ошибка при загрузке данных';
+
       } finally {
+
         loading.value = false;
       }
     });
